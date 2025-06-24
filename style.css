@@ -1,0 +1,555 @@
+/* ====== General Styles ====== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 70px; /* يعوض ارتفاع الـ fixed header */
+}
+
+/* ====== TOP NAVIGATION AND HEADER ====== */
+header.nav {
+  display: flex;
+  justify-content: space-between; /* الشعار يسار، التنقل يمين */
+  align-items: center;
+  min-height: 70px;
+  background: rgba(0, 0, 0, 0.8); /* خلفية ثابتة وواضحة */
+  padding: 0 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.nav .logo {
+  color: #f7c948; /* لون ذهبي بارز للشعار */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.8em;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.top-nav {
+  display: flex;
+  gap: 30px; /* تباعد بين روابط التنقل */
+  font-family: 'Arial', sans-serif;
+}
+
+.top-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.top-nav a:hover {
+  color: #ff6f61; /* لون تحويم أكثر حيوية */
+}
+
+.top-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff6f61;
+  transition: width 0.3s ease-in-out;
+}
+
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+/* ====== Overlay Section (Main Page Hero) ====== */
+.overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  min-height: calc(100vh - 70px); /* يملأ باقي ارتفاع الشاشة بعد الهيدر */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+h1{font-size:4em;margin:0;}
+h2{font-weight:normal;font-size:1.5em;margin-top:10px;}
+
+/* New styles for SEO text in overlay */
+.hero-description {
+    max-width: 800px;
+    margin-top: 30px;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+}
+.hero-description p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.hero-description h2 {
+    font-size: 1.8em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #f7c948;
+}
+
+/* ====== Buttons Section ====== */
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 25px;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn i {
+  font-size: 1.3em;
+}
+
+.btn-call{background:#007bff;}.btn-call:hover{background:#0056b3; border-color:#0056b3;}
+.btn-whatsapp{background:#25D366;}.btn-whatsapp:hover{background:#1ebe57; border-color:#1ebe57;}
+.btn-instagram{background:#E1306C;}.btn-instagram:hover{background:#c91d5a; border-color:#c91d5a;}
+.btn-tiktok{background:#000; border-color:#fff;}.btn-tiktok:hover{background:#333; border-color:#333;}
+.btn-home{background-color:#ff9800; color:white;}.btn-home:hover{background-color:#e68900; border-color:#e68900;}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ====== Gallery Section (for index.html) ====== */
+/* هذه التنسيقات هي للمعرض الموجود في الصفحة الرئيسية */
+.gallery{
+  background:url('gallery-bg.jpg') no-repeat center center fixed;
+  background-size:cover;
+  padding:60px 20px;
+  color:#fff;
+  text-align:center;
+}
+.gallery h2{font-size:2em;margin-bottom:30px;}
+.gallery h3 { /* New style for H3 in gallery section */
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #f7c948;
+}
+.gallery-scroll{
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  padding-bottom:10px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+}
+.gallery-scroll::-webkit-scrollbar{display:none;}
+.gallery-scroll img{
+  height:250px;
+  border-radius:12px;
+  scroll-snap-align:center;
+  transition:transform .3s ease;
+}
+.gallery-scroll img:hover{transform:scale(1.05);}
+
+
+/* ====== GALLERY, ABOUT, CONTACT PAGES SPECIFIC STYLES ====== */
+/* هذه التنسيقات مخصصة لصفحات المعرض، حول، واتصل بنا */
+body.gallery-page, body.about-page, body.contact-page {
+  background-image: url('xo-club-dubai-dj-live-set.jpg'); /* استخدم صورة خلفية موحدة لصفحات المحتوى */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  padding-top: 70px; /* لتعويض الـ fixed header */
+}
+
+.content { /* هذا الـ div موجود في gallery.html, about.html, contact.html */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0; /* لأن body.page-class لديه padding-top */
+  color: #ffffff; /* جعل كل النصوص داخل .content بيضاء */
+}
+
+.content h1, .content h2 { /* عناوين هذه الصفحات */
+  color: #f7c948; /* لون ذهبي ليتناسق مع تصميم الموقع */
+}
+
+.content p {
+  color: #ffffff; /* تأكيد اللون الأبيض للفقرات */
+  line-height: 1.7;
+}
+
+.content strong { /* للتأكيد على النصوص القوية */
+  color: #f7c948; /* يمكنك جعلها بنفس لون العنوان أو أبيض */
+}
+
+.content a { /* روابط داخل محتوى الصفحات */
+  color: #00ffff; /* لون أزرق فاتح للروابط لتكون واضحة */
+  text-decoration: underline;
+}
+.content a:hover {
+  color: #00bfff; /* لون أغمق عند التحويم */
+}
+
+/* تنسيقات Gallery Container للأزرار في gallery.html */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* تنسيقات تمرير الصور للمعرض في gallery.html */
+.gallery-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery-scroll::-webkit-scrollbar { display: none; }
+
+.gallery-scroll img {
+  flex-shrink: 0;
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  transition: transform .3s ease;
+}
+.gallery-scroll img:hover { transform: scale(1.03); }
+
+/* أزرار التنقل للمعرض في gallery.html */
+.gallery-nav-btn {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.5em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+.gallery-nav-btn:hover { background: rgba(0, 0, 0, 0.8); }
+.gallery-nav-btn.prev { left: 10px; }
+.gallery-nav-btn.next { right: 10px; }
+
+
+/* ====== INFO SECTION IMPROVEMENTS ====== */
+.info-section {
+  background: rgba(0, 0, 0, 0.85); /* خلفية داكنة وواضحة */
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff; /* تأكد أن لون النص أبيض */
+}
+
+.info-section h2{
+  font-size:2.5em;
+  margin-bottom:40px;
+  color:#f7c948; /* لون ذهبي للعنوان */
+}
+.info-section h3 { /* New style for H3 in info section */
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #f7c948;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card, .tripadvisor-card {
+  background: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.card iframe {
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  height: 250px;
+}
+
+.tripadvisor-card img {
+  width: 120px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.tripadvisor-card h3 {
+  color: #000;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.tripadvisor-card p {
+  color: #555;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.tripadvisor-card a {
+  background: #34E0A1;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.tripadvisor-card a:hover { background: #2cb78d; }
+
+/* ====== Footer Styles ====== */
+.site-footer {
+  background: rgba(0, 0, 0, 0.9); /* خلفية داكنة وواضحة للتذييل */
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 50px; /* تباعد عن المحتوى العلوي */
+  border-top: 3px solid #f7c948; /* خط علوي ذهبي لتمييز التذييل */
+  text-align: left; /* جعل النصوص تظهر من اليسار لليمين */
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1; /* لجعل الأقسام تأخذ مساحة متساوية */
+  min-width: 250px; /* لضمان عدم تقلصها أكثر من اللازم */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.footer-section h3 {
+  color: #f7c948; /* لون ذهبي لعناوين الأقسام */
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-section h3::after { /* خط سفلي بسيط للعناوين */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #ff6f61;
+}
+
+.footer-section p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ff6f61;
+  text-decoration: underline;
+}
+
+.footer-section.contact-info p i {
+  margin-right: 10px;
+  color: #f7c948;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.5em;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff6f61;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}
+
+
+/* ====== MEDIA QUERIES FOR RESPONSIVENESS ====== */
+@media (max-width: 800px){
+  .cards{
+    flex-direction: column;
+    align-items: center;
+  }
+  .card, .tripadvisor-card {
+    width: 90%;
+  }
+  .footer-content {
+      flex-direction: column;
+      align-items: center;
+  }
+  .footer-section {
+      min-width: auto;
+      width: 90%;
+      text-align: center;
+  }
+  .footer-section h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+    header.nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 15px;
+        min-height: auto;
+    }
+    .nav .logo {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        margin-right: 0;
+    }
+    .top-nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .gallery-scroll img {
+      width: 220px;
+      height: 150px;
+    }
+    .gallery-nav-btn {
+      padding: 8px 12px;
+      font-size: 1.2em;
+    }
+    .gallery-nav-btn.prev {
+      left: 5px;
+    }
+    .gallery-nav-btn.next {
+      right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay {
+        min-height: 650px; /* زيادة الارتفاع لترك مساحة أكبر للصورة والنص */
+        /* يمكنك تجربة 80vh أيضاً بدلاً من 650px */
+        background-attachment: scroll; /* لجعل صورة الخلفية تتحرك مع التمرير بدلاً من التثبيت */
+        padding-top: 120px; /* زيادة التباعد العلوي أكثر عن الهيدر */
+        padding-bottom: 80px; /* زيادة التباعد السفلي */
+    }
+
+    .overlay h1 {
+        font-size: 2.2em; /* تصغير حجم العنوان الرئيسي */
+        line-height: 1.2;
+    }
+
+    .overlay h2 {
+        font-size: 1em; /* تصغير حجم العنوان الفرعي */
+        margin-top: 5px;
+    }
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn {
+        width: 80%;
+        margin: 0 auto;
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
